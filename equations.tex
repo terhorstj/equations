@@ -6,33 +6,21 @@
 
 % basic setup
 
-\usepackage{microtype,graphicx,float,booktabs,verbatim,siunitx,mathrsfs,titlesec,parskip,nicefrac}
-\usepackage[T1]{fontenc}   
-\usepackage{fullpage}   
+\usepackage{microtype,graphicx,float,booktabs,verbatim,siunitx,mathrsfs,titlesec,parskip,fullpage,nicefrac}
+\usepackage[T1]{fontenc}    
 \usepackage[version=4]{mhchem} 
 \usepackage[bottom,hang]{footmisc}\setlength\footnotemargin{9pt}\interfootnotelinepenalty=10000\setlength{\skip\footins}{0.5cm}  
 
 % tables and figures
 
 \setlength\heavyrulewidth{0.2ex}\setlength\cmidrulewidth{0.1ex}\setlength\lightrulewidth{0.1ex}
-\usepackage[font=normalsize,labelfont=bf]{caption}\captionsetup[table]{aboveskip=2pt}%\captionsetup[figure]{skip=8pt}
+\usepackage[font=normalsize,labelfont=bf]{caption}\captionsetup[table]{aboveskip=2pt}\captionsetup[figure]{skip=6pt}
 
 % section headers
 
 \titleformat{\section}{\large\bfseries}{\thetitle.}{.5em}{}
 \titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{}
 \titleformat{\subsubsection}{\itshape}{\thesubsubsection.}{.5em}{}
-%\makeatletter\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}\makeatother %this puts header numbers in margin
-
-% page headers
-
-%\usepackage{fancyhdr} \renewcommand{\headrulewidth}{0pt}\pagestyle{plain}
-%\setlength{\headsep}{0.2in}
-%\setlength{\headheight}{28pt}
-
-%\fancypagestyle{custom}{
-    %\fancyhead[L]{{John Terhorst\\Page \thepage}}
-    %\fancyfoot{}} %\pagestyle{custom}
 
 % macros
     
@@ -72,14 +60,9 @@
 \def\cmi{cm$^{-1}$}
 \def\cd{$\cdot$}
 
-\newenvironment{qnumerate}
-{\begin{enumerate}\renewcommand\labelenumi{\textbf {Q\theenumi.}}}{\end{enumerate}}
-\newenvironment{anumerate}
-{\begin{enumerate}[label=\textbf{(\alph*)}]}{\end{enumerate}}\def\dipole{+\hspace*{-3mm}$\longrightarrow$}
-
 % hyperref, load last
 
-\usepackage{hyperref}\hypersetup{colorlinks = true, urlcolor = blue}
+\usepackage{hyperref}\hypersetup{colorlinks = true}
 
 
 % ==========================================================================================
