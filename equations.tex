@@ -1,0 +1,917 @@
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\documentclass[10pt]{article}
+
+% basic setup
+
+\usepackage{microtype,graphicx,float,booktabs,verbatim,siunitx,mathrsfs,titlesec,parskip,nicefrac}
+\usepackage[T1]{fontenc}   
+\usepackage{fullpage}   
+\usepackage[version=4]{mhchem} 
+\usepackage[bottom,hang]{footmisc}\setlength\footnotemargin{9pt}\interfootnotelinepenalty=10000\setlength{\skip\footins}{0.5cm}  
+
+% tables and figures
+
+\setlength\heavyrulewidth{0.2ex}\setlength\cmidrulewidth{0.1ex}\setlength\lightrulewidth{0.1ex}
+\usepackage[font=normalsize,labelfont=bf]{caption}\captionsetup[table]{aboveskip=2pt}%\captionsetup[figure]{skip=8pt}
+
+% section headers
+
+\titleformat{\section}{\large\bfseries}{\thetitle.}{.5em}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{}
+\titleformat{\subsubsection}{\itshape}{\thesubsubsection.}{.5em}{}
+%\makeatletter\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}\makeatother %this puts header numbers in margin
+
+% page headers
+
+%\usepackage{fancyhdr} \renewcommand{\headrulewidth}{0pt}\pagestyle{plain}
+%\setlength{\headsep}{0.2in}
+%\setlength{\headheight}{28pt}
+
+%\fancypagestyle{custom}{
+    %\fancyhead[L]{{John Terhorst\\Page \thepage}}
+    %\fancyfoot{}} %\pagestyle{custom}
+
+% macros
+    
+\newcommand*\supr[1]{$^{#1}$}
+\newcommand*\sub[1]{$_{#1}$}
+\newcommand*\unit[1]{\textrm{ #1}}
+\newcommand*\rsq[1]{Correlation coefficient for line of best fit $R^2=#1$}
+
+% labels
+
+\def\tablab{Table}\def\tabslab{\tablab s}
+\def\figlab{Figure}\def\figslab{\figlab s}
+\def\equlab{Eq.}\def\equslab{Eqs.}
+\newcommand*\eq[1]{\equlab~\ref{#1}}
+\newcommand*\eqs[1]{\equslab~\ref{#1}}
+\newcommand*\tbl[1]{\tablab~\ref{#1}}
+\newcommand*\fig[1]{\figlab~\ref{#1}}
+\newcommand*\figs[1]{\figslab~\ref{#1}}
+
+% shortcuts
+
+\def\myrr{\textsuperscript{\tiny\textregistered}}
+\def\deg{$^{\circ}$}
+\def\tild{$\sim$}
+\def\dg{$\Delta G$}
+\def\electron{e$^-$}
+\def\Ecell{$\mathscr{E}_{\textrm{cell}}$}
+\def\Enotcell{$\mathscr{E}^{\circ}_{\textrm{cell}}$}
+\def\Enot{$\mathscr{E}^{\circ}$}
+\def\not{^\circ}
+\def\Ka{$K_{\textrm{a}}$}
+\def\Kb{$K_{\textrm{b}}$}
+\def\Kw{$K_{\textrm{w}}$}
+\def\Ksp{$K_{\textrm{sp}}$}
+\def\Keq{$K_{\textrm{eq}}$}
+\def\pKa{p$K_{\textrm{a}}$}
+\def\cmi{cm$^{-1}$}
+\def\cd{$\cdot$}
+
+\newenvironment{qnumerate}
+{\begin{enumerate}\renewcommand\labelenumi{\textbf {Q\theenumi.}}}{\end{enumerate}}
+\newenvironment{anumerate}
+{\begin{enumerate}[label=\textbf{(\alph*)}]}{\end{enumerate}}\def\dipole{+\hspace*{-3mm}$\longrightarrow$}
+
+% hyperref, load last
+
+\usepackage{hyperref}\hypersetup{colorlinks = true, urlcolor = blue}
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\begin{document}
+
+\title{Common Equations Used in Chemistry}
+\author{John Terhorst, Ph.D.}
+
+\maketitle
+\tableofcontents
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\newpage\section{Basic Conversions and Definitions}
+
+Converting \deg F to \deg C:
+\begin{equation*}
+\textrm{\deg C} = (\textrm{\deg F}-32)\times \frac{5}{9}
+\end{equation*}
+
+Converting \deg C to \deg F:
+\begin{equation*}
+\textrm{\deg F} = \left(\textrm{\deg C}\times \frac{9}{5}\right) +32
+\end{equation*}
+
+Converting \deg C to K:
+\begin{equation*}
+K = \textrm{\deg C}+273.15
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\section{Solutions}
+
+Density:
+\begin{equation*}
+d = \frac{m}{V}
+\end{equation*}
+
+Molarity:
+\begin{equation*}
+C = \frac{\textrm{moles of solute}}{\textrm{liters of solution}}
+\end{equation*}
+
+Molality:
+\begin{equation*}
+b = \frac{\textrm{moles of solute}}{\textrm{kg of solvent}}
+\end{equation*}
+
+Boiling point elevation\footnote{The van't Hoff factor, $i$, describes the number of particles formed upon solvation. For example, for solvation of sodium chloride, NaCl$(s)$ \ce{->} Na$^{+}(aq)$ + Cl$^{-}(aq)$, $i=2$. For a nonelectrolyte (like glucose or benzene), $i=1$. This factor can deviate from ideality for highly charged ions, where ion-pairing occurs (incomplete dissociation), as is seen with CaCl$_{2}$, where $i=2.6$ instead of 3.0 (CaCl$_{2}(s)$ \ce{->} Ca$^{2+}(aq)$ + 2Cl$^{-}(aq)$).}:
+\begin{equation*} 
+\Delta T_\textrm{b} = iK_\textrm{b}b
+\end{equation*}
+
+Freezing point depression:
+\begin{equation*}
+\Delta T_\textrm{f} = iK_\textrm{f}b
+\end{equation*}
+
+\begin{table}[H]
+	\centering
+	\caption{Boiling point elevation and freezing point depression constants for different solvents.}
+		\begin{tabular}{cSSSS}
+			\toprule
+            Solvent & {Normal Boiling Point (\deg C)} & {$K_\textrm{b}$ (\deg C/m)} & {Normal Freezing Point (\deg C)} & {$K_\textrm{f}$ (\deg C/m)} \\ 
+            \midrule
+            Water & 100.0 & 0.512 & 0.0 & 1.86\\
+            Acetic acid & 118.1 & 3.04 & 16.6 & 3.90\\
+            Benzene & 80.1 & 2.53 & 5.5 & 5.12  \\
+            Chloroform & 61.3 & 3.63 & -63.5 & 4.86\\
+            Nitrobenzene & 210.9 & 5.24 & 5.67 & 8.1 \\
+            \bottomrule
+		\end{tabular}
+\end{table}
+
+Osmotic pressure:
+\begin{equation*}
+\pi=i\textrm{M}RT
+\end{equation*}
+
+Dilution:
+\begin{equation*}
+C_1V_1=C_2V_2
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\section{Gases}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+Ideal Gas Law, $R=0.08206$ $\frac{\textrm{L\cd atm}}{\textrm{K\cd mol}}$
+\begin{equation*}
+PV=nRT
+\end{equation*}
+
+Boyle's Law ($n$, $T$ constant):
+\begin{equation*}
+P_1V_1=P_2V_2
+\end{equation*}
+
+Charles' Law ($n$, $P$ constant):
+\begin{equation*}
+\frac{V_1}{V_2} = \frac{T_1}{T_2} 
+\end{equation*}
+
+Avogadro's Law ($P$, $T$ constant):
+\begin{equation*}
+\frac{V_1}{V_2} = \frac{n_1}{n_2} 
+\end{equation*}
+
+Gay-Lussac's Law ($P$, $T$ constant):
+\begin{equation*}
+\frac{P_1}{P_2} = \frac{T_1}{T_2} 
+\end{equation*}
+
+Combined Gas Law ($n$ is constant):
+\begin{equation*}
+\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}
+\end{equation*}
+
+Relation of density to molar mass:
+\begin{equation*}
+M = \frac{dRT}{P}
+\end{equation*}
+
+Dalton's Law of Partial Pressures, where $\chi_i$ = mole fraction of species $i$ and $P_\textrm{T}$ is total pressure:
+\begin{equation*}
+P_i=\chi_iP_\textrm{T}
+\end{equation*} 
+
+Raoult's Law, where $P_i^\star$ is the vapor pressure of pure substance $i$:
+\begin{equation*}
+P_T^\star=\chi_AP_A^\star + \chi_BP_B^\star + \dots
+\end{equation*}
+
+Alternately,
+\begin{equation*}
+P_i=\chi_iP_i^\star
+\end{equation*}
+
+Root-mean-square (RMS) speed of a gas particle:
+\begin{equation*}
+\mu = \sqrt{\frac{3RT}{M}}
+\end{equation*}
+
+Rates of Effusion by Molar Mass
+\begin{equation*}
+\frac{\textnormal{rate}_1}{\textnormal{rate}_2} = \sqrt{\frac{M_2}{M_1}}
+\end{equation*}
+
+van der Waals equation for pressure of a non-ideal gas, where $a$ corrects for the attractive forces between gas particles, and $b$ corrects for the volume occupied by gas particles:
+\begin{equation*}
+\left(P+\frac{an^2}{V^2}\right)(V-nb)=nRT
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\section{Thermodynamics}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\subsection{Heat Exchange}
+
+Heat exchange, where $C_s$ is specific heat capacity:
+\begin{equation*}
+q=mC_s\Delta T
+\end{equation*}
+
+Calorimetry in an imperfect calorimeter:
+\begin{equation*}
+q_\textrm{rxn}=mC_s\Delta T + C_\textrm{cal}\Delta T
+\end{equation*}
+
+Heat exchange, where $C_V$ is molar heat capacity at constant volume:
+\begin{equation*}
+q= nC_V\Delta T
+\end{equation*}
+
+Heat exchange, where $C_P$ is molar heat capacity at constant pressure:
+\begin{equation*}
+q= nC_P\Delta T
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\subsection{Conditions}
+
+\subsubsection{Definitions}
+\begin{itemize}
+    \item Isothermal: $\Delta T = 0$, $\Delta E = 0$, $q = -w$
+    \item Adiabatic: $q = 0$, $\Delta E = w$
+    \item Isobaric: $\Delta P = 0$ (constant pressure)
+\end{itemize}
+
+\subsubsection{In General}
+\begin{itemize}
+    \item $q = nC\Delta T$
+    \item $w = -P\Delta V$ where L$\cdot$atm = 101.325 J
+    \item $\Delta E = q + w$
+    \item $\Delta H = \Delta E + P\Delta V + V\Delta P$
+    \item $C_\textrm{P} = \frac{5}{2}R$ and $C_\textrm{V} = \frac{3}{2}R$
+\end{itemize}
+
+\bigskip\begin{table}[H]
+	\centering
+	\caption{Summary of thermodynamic quantities under different conditions.}
+		\begin{tabular}{lcccc}
+			\toprule
+            Quantity  & Constant $P$ & Constant $V$ & Adiabatic & Isothermal\\
+            \midrule
+            Heat, $q$    & $nC_\textrm{P}\Delta T$ & $nC_\textrm{V}\Delta T$ & 0 & $-w$ \\
+            Work, $w$    & $-P\Delta V$ & 0 & $nC_V\Delta T$ & $-nRT\ln \left(\frac{V_\textrm{f}}{V_\textrm{i}}\right) = -nRT\ln \left(\frac{P_\textrm{i}}{P_\textrm{f}}\right)$ \\
+            Energy, $\Delta E$ & $q+w$ & $q$ & $w$ & 0 \\
+            Enthalpy, $\Delta H$ & $q$ & $\Delta E + V\Delta P$ & $V\Delta P$ & 0  \\
+            Entropy, $\Delta S$ & $nC_\textrm{P}\ln \left(\frac{T_\textrm{f}}{T_\textrm{i}}\right)$ &  $nC_\textrm{V}\ln \left(\frac{T_\textrm{f}}{T_\textrm{i}}\right)$ & 0 & $nR\ln \left(\frac{V_\textrm{f}}{V_\textrm{i}}\right) = nR\ln \left(\frac{P_\textrm{i}}{P_\textrm{f}}\right)$ \\          
+			\bottomrule
+		\end{tabular}
+	\label{cond}
+\end{table}
+
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\subsection{The Adiabatic Condition}
+
+Given a rapid change in volume where $q=0$, both $P$ and $T$ change to accommodate the compression or expansion.
+\begin{equation*}
+\gamma = \frac{C_P}{C_V} = \frac{5}{3}
+\end{equation*}
+
+\begin{equation*}
+(P_1)(V_1)^\gamma = (P_2)(V_2)^\gamma
+\end{equation*}
+
+\begin{equation*}
+w = nC_V\Delta T
+\end{equation*}
+
+Temperature change in adiabatic compression or expansion:
+\begin{equation*}
+T_\textrm{f} = T_\textrm{i}\left(\frac{V_\textrm{i}}{V_\textrm{f}}\right)^{(R/C_V)}
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\vspace*{0.5cm}
+\subsection{Enthalpy}
+
+Enthalpy is the energy required to create a system, plus the amount of energy required to make room for the system by displacing its environment by the system's volume at a given pressure.
+\begin{equation*}
+H = E + PV
+\end{equation*}
+
+Enthalpy change for a reaction:
+\begin{equation*}
+\Delta H = \Delta E + \Delta(PV) = \Delta E + P\Delta V + V\Delta P
+\end{equation*}
+
+Standard enthalpy of reaction, where $n$ and $m$ are coefficients in the balanced reaction equation:
+\begin{equation*}
+\Delta H\not_\textrm{rxn} = \sum{n\Delta H\not_\textrm{f}(\textrm{products})}-\sum{m\Delta H\not_\textrm{f}(\textrm{reactants})} = \sum{D_\textrm{broken}} - \sum{D_\textrm{formed}} 
+\end{equation*}
+
+Clausius--Clapeyron equation:
+\begin{equation*}
+\ln P = \frac{-\Delta H_\textrm{vap}}{RT}+C
+\end{equation*}
+
+Heat of vaporization based on the Clausius--Clapeyron equation:
+\begin{equation*}
+\ln \frac{P_1}{P_2} = \frac{\Delta H_\textrm{vap}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) = \frac{-\Delta H_\textrm{vap}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\newpage
+\subsection{Entropy}
+
+Second Law of Thermodynamics:
+\begin{equation*}
+\Delta S_\textrm{universe} = \Delta S_\textrm{system} + \Delta S_\textrm{surroundings} > 0
+\end{equation*}
+
+Standard entropy of reaction, where $n$ and $m$ are coefficients in the balanced reaction equation:
+\begin{equation*}
+\Delta S\not_\textrm{rxn} = \sum{n\Delta S\not(\textrm{products})}-\sum{m\Delta S\not(\textrm{reactants})}
+\end{equation*}
+
+Change in entropy with $\Delta H_{\textrm{vap}}$ or $q$ where T is constant:
+\begin{equation*}
+\Delta S = \frac{\Delta H_{\textrm{vap}}}{T} = \frac{q}{T}
+\end{equation*}
+
+Change in entropy with $\Delta V$ or $\Delta P$ where T is constant:
+\begin{equation*}
+\Delta S = nR\ln \left(\frac{V_\textrm{f}}{V_\textrm{i}}\right) = nR\ln \left(\frac{P_\textrm{i}}{P_\textrm{f}}\right)
+\end{equation*}
+
+Change in entropy for a thermodynamic process where T and/or P are varied:
+\begin{equation*}
+\Delta S = nC_V\ln\left(\frac{T_\textrm{f}}{T_\textrm{i}}\right) - nR\ln\left(\frac{P_\textrm{f}}{P_\textrm{i}}\right)
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\subsection{Gibbs Free Energy}
+
+Free energy change at constant temperature:
+\begin{equation*}
+\Delta G\not = \Delta H\not - T \Delta S\not
+\end{equation*}
+
+Or for an equilibrium reaction:
+\begin{equation*}
+\Delta G\not = -RT\ln K_{\textrm{eq}}
+\end{equation*}
+
+Non-standard free energy:
+\begin{equation*}
+\Delta G = \Delta G\not + RT\ln Q
+\end{equation*}
+
+Standard free energy of reaction, where $n$ and $m$ are coefficients in the balanced reaction equation:
+\begin{equation*}
+\Delta G\not_\textrm{rxn} = \sum{n\Delta G\not_\textrm{f}(\textrm{products})}-\sum{m\Delta G\not_\textrm{f}(\textrm{reactants})}
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\newpage
+\section{Electromagnetism}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+Relationship of wavelength and frequency, where $c=\num{2.99e8}\unit{m/s}$:
+\begin{equation*}
+c = \lambda\nu
+\end{equation*}
+
+Energy of a photon, where Planck's constant $h=\num{6.626e-34}\unit{J\cd s}$:
+\begin{equation*}
+E = h\nu = \frac{hc}{\lambda}
+\end{equation*}
+
+Energy of an electron in the $n^{\textrm{th}}$ shell in a hydrogen atom, where $R_\textrm{H}=\num{2.18e-18}\unit{J}$:
+\begin{equation*}
+E_n=-Z^2R_\textrm{H}\left(\frac{1}{n^2}\right)
+\end{equation*}
+
+Energy of a photon emitted as the electron undergoes a transition from the $n_\textrm{i}$ shell to the $n_\textrm{f}$ shell:
+\begin{equation*}
+\Delta E = Z^2R_\textrm{H}\left(\frac{1}{n_\textrm{f}^2}-\frac{1}{n_\textrm{i}^2}\right)
+\end{equation*}
+
+Or, use $R_\textrm{H} = 10973731.6$ m$^{-1}$:
+\begin{equation*}
+\frac{1}{\lambda} = Z^2R_\textrm{H}\left(\frac{1}{n_\textrm{f}^2}-\frac{1}{n_\textrm{i}^2}\right)
+\end{equation*}
+
+de Broglie wavelength:
+\begin{equation*}
+\lambda=\frac{h}{mv}
+\end{equation*}
+
+Formal charge:
+\begin{equation*}
+q_\textrm{F} = N_ie_\textrm{V} - N_j\textrm{B} - N_ke_\textrm{NB} 
+\end{equation*}
+
+Dipole moment:
+\begin{equation*}
+\mu = Q\times r
+\end{equation*}
+
+Bragg equation:
+\begin{equation*}
+\lambda\nu = 2d \sin \theta
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+\newpage
+\section{Quantum Mechanics}
+
+Heisenberg Uncertainty Principle:
+\begin{equation*}
+\Delta x \Delta\rho \ge \frac{h}{4\pi}
+\end{equation*}
+
+The time-dependent Schr\"odinger equation:
+\begin{equation*}
+i\hbar\frac{\partial}{\partial t}|\Psi(t)\rangle = \hat{H}|\Psi(t)\rangle
+\end{equation*}
+
+The time-independent Schr\"odinger equation for a particle of mass $m$ moving in one direction with energy E where $\hbar=h/2\pi$ is:
+
+\begin{equation*}
+-\frac{\hbar^2}{2m}\frac{d^2\Psi(x)}{dx^2}+V(x)\Psi(x)=E\Psi(x)
+\end{equation*}
+
+Wavefunction for the $1s$ orbital:
+\begin{equation*}
+\psi_{1s} = \frac{1}{\sqrt{\pi}}e^{-r}
+\end{equation*}
+
+Wavefunction for the $2s$ orbital:
+\begin{equation*}
+\psi_{2s} = \frac{1}{2\sqrt{2\pi}}\left(1-\frac{r}{2}\right)e^{-r/2}
+\end{equation*}
+
+Wavefunction for the $2p_z$ orbital, where $a_0$ is the radius of the first Bohr orbit (\num{5.29e-11} m), $\sigma = Z(r/a_0)$ 
+where $r$ is the distance (in m) from the nucleus and $Z$ is the nuclear charge, and $\theta$ is an angle:
+\begin{equation*}
+\psi_{2p_z} = \frac{1}{4\sqrt{2\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\sigma e^{-\sigma/2}\cos\theta
+\end{equation*}
+
+Wavefunction for a particle in a 1-dimensional box of length L:
+\begin{equation*}
+\psi=\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi}{L}\right)x
+\end{equation*}
+
+Energy for a particle in a 1-dimensional box of length L:
+\begin{equation*}
+E = \frac{n^2h^2}{8mL^2}
+\end{equation*}
+
+Potential energy between two charged bodies:
+\begin{equation*}
+V=k\frac{q_1q_2}{r}
+\end{equation*}
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\section{Stoichiometry}
+
+Percent composition of an element in a compound, where $n$ = the number of moles of the element in one mole of the compound:
+\begin{equation*}
+\% = \left(\frac{n\times \textrm{molar mass of element}}{\textrm{molar mass of compound}}\right)\times 100\%
+\end{equation*}
+
+Percent yield:
+\begin{equation*}
+\textrm{\% yield} = \left(\frac{\textrm{actual yield}}{\textrm{theoretical yield}}\right)\times 100\%
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\newpage
+\section{Electrochemistry}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+Electrical force between two charged bodies:
+\begin{equation*}
+F_{e\ell}=k\frac{q_1q_2}{r_2}
+\end{equation*}
+
+Standard emf of an electrochemical cell:
+\begin{equation*}
+\textrm{\Enotcell} = \textrm{$\mathscr{E}^{\circ}_{\textrm{ox}}$} - \textrm{$\mathscr{E}^{\circ}_{\textrm{red}}$}  = \frac{RT}{nF} \ln K
+\end{equation*}
+
+Standard free energy of an electrochemical cell:
+\begin{equation*}
+\Delta G\not = -nF\textrm{\Enotcell}
+\end{equation*}
+
+Nernst equation:
+\begin{equation*}
+\textrm{\Ecell} = \textrm{\Enotcell} - \frac{RT}{nF}\ln Q
+\end{equation*}
+
+Therefore:
+Standard free energy of an electrochemical cell:
+\begin{equation*}
+\Delta G = -nF\textrm{\Ecell}
+\end{equation*}
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\section{Reaction Kinetics}
+
+\begin{table}[H]
+  \centering
+    \begin{tabular}{clll}
+    \toprule
+    \multicolumn{1}{c}{} & \multicolumn{3}{c}{Rate Laws}\\
+    \cmidrule(l){2-4} 
+    Order & Standard Form & Integrated Form & Line Form \\
+	\midrule
+	0 & $\textrm{rate}=k$ & $\textrm{[A]}_t-\textrm{[A]}_0=-kt$ & $\textrm{[A]}_t=-kt+\textrm{[A]}_0$   \\[10pt]
+	1 & $\textrm{rate}=k\textrm{[A]}$ & $\ln\frac{\textrm{[A]}_t}{\textrm{[A]}_0}=-kt$ & $\ln\textrm{[A]}_t=-kt+\ln\textrm{[A]}_0$  \\[10pt]
+	2 & $\textrm{rate}=k\textrm{[A]}^2$ & $\frac{1}{\textrm{[A]}_t}-\frac{1}{\textrm{[A]}_0}=kt$ & $\frac{1}{\textrm{[A]}_t}=kt+\frac{1}{\textrm{[A]}_0}$  \\
+    \bottomrule
+    \end{tabular}%
+    \label{tab:rate}%
+\end{table}%
+
+\begin{table}[H]
+  \centering
+    \begin{tabular}{cl}
+    \toprule
+    Order & Half-life\\
+	\midrule
+	0 & $t_{\nicefrac{1}{2}}=\frac{\textrm{[A]}_0}{2k}$ \\[10pt]
+	1 & $t_{\nicefrac{1}{2}}=\frac{\ln 2}{k}$  \\[10pt]
+	2 & $t_{\nicefrac{1}{2}}=\frac{1}{k\textrm{[A]}_0}$  \\
+    \bottomrule
+    \end{tabular}%
+    \label{tab:half}%
+\end{table}%
+
+%The rate constant $k$ is a combination of many factors, mostly involving collision theory.\footnote{Collision theory is a theory that qualitatively explains how chemical reactions occur and why reaction rates differ for different reactions. Collision theory states that when suitable particles of the reactant collide with each other, only a certain percentage of the collisions cause any noticeable or significant chemical change; these successful changes are called ``successful collisions.'' A successful collision has enough energy, also known as activation energy ($E_\textrm{a}$), at the moment of impact to break the preexisting bonds and form all new bonds. This results in the products of the reaction. Increasing the concentration of the reactant particles or raising the temperature, thus bringing about more collisions and therefore many more successful collisions, increases the rate of reaction.} It is defined by the 
+
+Arrhenius equation:
+\begin{equation*}
+k = A \exp{\frac{-E_\textrm{a}}{RT}}
+\end{equation*}
+
+Determining energy of activation:
+\begin{equation*}
+\ln k = \left(\frac{-E_\textrm{a}}{R}\right)\left(\frac{1}{T}\right) + \ln A
+\end{equation*}
+
+Relationships of rate constants at two different temperatures:
+\begin{equation*}
+\ln \frac{k_1}{k_2} = \frac{E_\textrm{a}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) = \frac{-E_\textrm{a}}{R}\left(\frac{1}{T_1}-\frac{1}{T_2}\right)
+\end{equation*}
+
+\subsection{Kinetics Data}
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Kinetics Data --- 0th Order}
+    \begin{tabular}{cccc}
+    \toprule
+    Time & Concentration & ln(Concentration) & 1/(Concentration) \\
+    \midrule
+    0     & 100   & 4.605 & 0.0100 \\
+    1     & 90    & 4.499 & 0.0110 \\
+    2     & 80    & 4.382 & 0.0125 \\
+    3     & 70    & 4.248 & 0.0141 \\
+    4     & 60    & 4.094 & 0.0166 \\
+    5     & 50    & 3.912 & 0.0200 \\
+    6     & 40    & 3.688 & 0.0250 \\
+    7     & 30    & 3.401 & 0.0333 \\
+    \bottomrule
+    \end{tabular}%
+\end{table}%
+\vspace*{-.5cm}    
+{\centering\input{kinetics/0/0a/mygraph.tex}\\[-3.5ex]
+\input{kinetics/0/0b/mygraph.tex}\\[-3.5ex]
+\input{kinetics/0/0c/mygraph.tex}\\}
+
+\newpage
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[H]
+  \centering
+  \caption{Kinetics Data --- 1st Order}
+    \begin{tabular}{cSSS}
+     \toprule
+    Time & {Concentration} & {ln(Concentration)} & {1/(Concentration)} \\
+     \midrule
+    0     & 100   & 4.605 & 0.01 \\
+    1     & 50    & 3.912 & 0.02 \\
+    2     & 25    & 3.218 & 0.04 \\
+    3     & 12.5  & 2.525 & 0.08 \\
+    4     & 6.25  & 1.832 & 0.16 \\
+    5     & 3.13  & 1.141 & 0.32 \\
+    6     & 1.56  & 0.444 & 0.64 \\
+    7     & 0.78  & -0.248 & 1.28 \\
+     \bottomrule
+    \end{tabular}%
+\end{table}%
+\vspace*{-.5cm}    
+{\centering\input{kinetics/1/1a/mygraph.tex}\\[-3.5ex]
+\input{kinetics/1/1b/mygraph.tex}\\[-3.5ex]
+\input{kinetics/1/1c/mygraph.tex}\\}
+
+\newpage
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Kinetics Data --- 2nd Order}
+    \begin{tabular}{cScc}
+     \toprule
+    Time & {Concentration} & ln(Concentration) & 1/(Concentration) \\
+     \midrule
+    0     & 100   & 4.605 & 0.01 \\
+    1     & 50    & 3.912 & 0.02 \\
+    2     & 33.3  & 3.505 & 0.03 \\
+    3     & 25    & 3.218 & 0.04 \\
+    4     & 20    & 2.995 & 0.05 \\
+    5     & 16.67 & 2.813 & 0.06 \\
+    6     & 14.28 & 2.658 & 0.07 \\
+    7     & 12.5  & 2.525 & 0.08 \\
+     \bottomrule
+    \end{tabular}%
+\end{table}%
+\vspace*{-.5cm}    
+{\centering\input{kinetics/2/2a/mygraph.tex}\\[-3.5ex]
+\input{kinetics/2/2b/mygraph.tex}\\[-3.5ex]
+\input{kinetics/2/2c/mygraph.tex}\\}
+
+
+
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\newpage
+\section{Equilibrium}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+Law of Mass Action (equilibrium constant) for a reaction of form $a\textrm{A}+b\textrm{B} \longrightarrow c\textrm{C}+d\textrm{D}$:
+\begin{equation*}
+K_\textrm{eq} = \frac{[\textrm{C}]^c[\textrm{D}]^d}{[\textrm{A}]^a[\textrm{B}]^b}
+\end{equation*}
+
+van't Hoff Equation
+\begin{equation*}
+\ln \left(\frac{K_2}{K_1}\right) = \frac{-\Delta H^\circ}{R}\left(\frac{1}{T_2}-\frac{1}{T_1}\right)
+\end{equation*}
+
+Relationship between equilibrium constants for aqueous systems and for gases:
+\begin{equation*}
+K_\textrm{p} = K_\textrm{c}RT^{\Delta n}
+\end{equation*}
+
+Ion product of water:
+\begin{equation*}
+K_\textrm{w} = [\textrm{H$_3$O$^{+}$}][\textrm{$^{-}$OH}] = \num{1e-14}
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\subsection{Equilibrium of Acids and Bases}
+
+Definition of pH:
+\begin{equation*}
+\textrm{pH} = -\log[\textrm{H$_3$O$^{+}$}]
+\end{equation*}
+
+Definition of pOH:
+\begin{equation*}
+\textrm{pOH} = -\log[\textrm{$^{-}$OH}] = 14-\textrm{pH}
+\end{equation*}
+
+For the reaction HA + H$_2$O $\longrightarrow$ H$_3$O$^{+}$ + A$^{-}$:
+\begin{equation*}
+\textrm{\Ka} = \frac{[\textrm{H$_3$O$^{+}$}][\textrm{A$^{-}$}]}{[\textrm{HA}]}
+\end{equation*}
+
+For the reaction B + H$_2$O $\longrightarrow$ BH$^{+}$ + $^{-}$OH:
+\begin{equation*}
+\textrm{\Kb} = \frac{\textrm{[BH$^{+}$][$^{-}$OH]}}{\textrm{[B]}}
+\end{equation*}
+
+Relationship between \Ka, \Kb, and \Kw:
+\begin{equation*}
+\textrm{\Kw = \Ka \Kb} = \num{1e-14}
+\end{equation*}
+
+Definition of \pKa:
+\begin{equation*}
+\textrm{\pKa} = -\log(\textrm{\Ka})
+\end{equation*}
+
+Henderson--Hasselbalch equation:
+\begin{equation*}
+\textrm{pH = \pKa} + \log \frac{\textrm{[base]}}{\textrm{[acid]}}
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\subsection{Equilibrium and Thermodynamics}
+
+Relationship between standard free-energy change and the equilibrium constant:
+\begin{equation*}
+\Delta G\not = -RT \ln K
+\end{equation*}
+
+Non-standard free energy for a reaction of form $a\textrm{A}+b\textrm{B} \longrightarrow c\textrm{C}+d\textrm{D}$, where $Q = \frac{[\textrm{C}]^c[\textrm{D}]^d}{[\textrm{A}]^a[\textrm{B}]^b}$:
+\begin{equation*}
+\Delta G = \Delta G\not + RT\ln Q
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\section{Similarity of Equations}
+
+\subsection{Linear Equations with Different Temperatures}
+
+Clausius--Clapeyron equation:
+\begin{equation*}
+\ln \frac{P_1}{P_2} = \frac{\Delta H_\textrm{vap}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) = \frac{-\Delta H_\textrm{vap}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
+\end{equation*}
+
+Arrhenius Equation
+\begin{equation*}
+\ln \frac{k_1}{k_2} = \frac{E_\textrm{a}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) = \frac{-E_\textrm{a}}{R}\left(\frac{1}{T_1}-\frac{1}{T_2}\right)
+\end{equation*}
+
+van't Hoff Equation
+\begin{equation*}
+\ln \frac{K_1}{K_2} = \frac{\Delta H^\circ}{R}\left(\frac{1}{T_2}-\frac{1}{T_1}\right) = \frac{-\Delta H^\circ}{R}\left(\frac{1}{T_1}-\frac{1}{T_2}\right)
+\end{equation*}
+
+\subsection{Summations}
+
+Standard entropy of reaction, where $n$ and $m$ are coefficients in the balanced reaction equation:
+\begin{equation*}
+\Delta S\not_\textrm{rxn} = \sum{n\Delta S\not(\textrm{products})}-\sum{m\Delta S\not(\textrm{reactants})}
+\end{equation*}
+
+Standard enthalpy of reaction, where $n$ and $m$ are coefficients in the balanced reaction equation:
+\begin{equation*}
+\Delta H\not_\textrm{rxn} = \sum{n\Delta H\not_\textrm{f}(\textrm{products})}-\sum{m\Delta H\not_\textrm{f}(\textrm{reactants})}
+\end{equation*}
+
+Standard free energy of reaction, where $n$ and $m$ are coefficients in the balanced reaction equation:
+\begin{equation*}
+\Delta G\not_\textrm{rxn} = \sum{n\Delta G\not_\textrm{f}(\textrm{products})}-\sum{m\Delta G\not_\textrm{f}(\textrm{reactants})}
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\begin{comment}
+\section{Other}
+
+Relationship between mass defect and energy released: 
+\begin{equation*}
+\Delta E = (\Delta m)c^2
+\end{equation*}
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
