@@ -1,2 +1,2 @@
 # equations
-a master equation sheet for chemistry
+a master equation sheet for chemistry 
