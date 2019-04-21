@@ -6,8 +6,8 @@
 
 % basic setup
 
-\usepackage{microtype,graphicx,float,booktabs,verbatim,siunitx,mathrsfs,titlesec,parskip,fullpage,nicefrac}
-\usepackage[T1]{fontenc}    
+\usepackage{microtype,graphicx,float,booktabs,verbatim,siunitx,titlesec,parskip,fullpage,nicefrac}
+\usepackage[rsfs]{emf}  
 \usepackage[version=4]{mhchem} 
 \usepackage[bottom,hang]{footmisc}\setlength\footnotemargin{9pt}\interfootnotelinepenalty=10000\setlength{\skip\footins}{0.5cm}  
 
@@ -46,9 +46,9 @@
 \def\tild{$\sim$}
 \def\dg{$\Delta G$}
 \def\electron{e$^-$}
-\def\Ecell{$\mathscr{E}_{\textnormal{cell}}$}
-\def\Enotcell{$\mathscr{E}^{\circ}_{\textnormal{cell}}$}
-\def\Enot{$\mathscr{E}^{\circ}$}
+\def\Ecell{$\emf_{\textnormal{cell}}$}
+\def\Enotcell{$\emf^{\circ}_{\textnormal{cell}}$}
+\def\Enot{$\emf^{\circ}$}
 \def\not{^\circ}
 \def\Ka{$K_{\textnormal{a}}$}
 \def\Kb{$K_{\textnormal{b}}$}
@@ -206,7 +206,7 @@ P_i=\chi_iP_\textnormal{T}
 
 Raoult's Law, where $P_i^\star$ is the vapor pressure of pure substance $i$:
 \begin{equation*}
-P_T^\star=\chi_AP_A^\star + \chi_BP_B^\star + \dots
+P_T^\star=\chi_\textnormal{A}P_\textnormal{A}^\star + \chi_\textnormal{B}P_\textnormal{Bb}^\star + \dots
 \end{equation*}
 
 Alternately,
@@ -570,7 +570,7 @@ F_{e\ell}=k\frac{q_1q_2}{r_2}
 
 Standard emf of an electrochemical cell:
 \begin{equation*}
-\textnormal{\Enotcell} = \textnormal{$\mathscr{E}^{\circ}_{\textnormal{ox}}$} - \textnormal{$\mathscr{E}^{\circ}_{\textnormal{red}}$}  = \frac{RT}{nF} \ln K
+\textnormal{\Enotcell} = \textnormal{$\emf^{\hspace*{.5mm}\circ}_{\hspace*{-.3mm}\textnormal{ox}}$} - \textnormal{$\emf^{\hspace*{.5mm}\circ}_{\hspace*{.5mm}\textnormal{red}}$}  = \frac{RT}{nF} \ln K
 \end{equation*}
 
 Standard free energy of an electrochemical cell:
