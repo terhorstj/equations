@@ -1,6 +1,6 @@
 % basic setup
 
-\usepackage{microtype,graphicx,float,booktabs,verbatim,siunitx,titlesec,parskip,fullpage,nicefrac}
+\usepackage{microtype,graphicx,booktabs,siunitx,titlesec,parskip,fullpage,nicefrac,float}
 \usepackage[rsfs]{emf}  
 \usepackage[version=4]{mhchem} 
 \usepackage[bottom,hang]{footmisc}\setlength\footnotemargin{9pt}\interfootnotelinepenalty=10000\setlength{\skip\footins}{0.5cm}  
@@ -16,23 +16,14 @@
 \titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{}
 \titleformat{\subsubsection}{\itshape}{\thesubsubsection.}{.5em}{}
 
-% macros
-    
-\newcommand*\supr[1]{$^{#1}$}
-\newcommand*\sub[1]{$_{#1}$}
-\newcommand*\unit[1]{\textnormal{ #1}}
-\newcommand*\rsq[1]{Correlation coefficient for line of best fit $R^2=#1$}
-
 % labels
 
 \def\tablab{Table}\def\tabslab{\tablab s}
 \def\figlab{Figure}\def\figslab{\figlab s}
-\def\equlab{Eq.}\def\equslab{Eqs.}
-\newcommand*\eq[1]{\equlab~\ref{#1}}
-\newcommand*\eqs[1]{\equslab~\ref{#1}}
 \newcommand*\tbl[1]{\tablab~\ref{#1}}
 \newcommand*\fig[1]{\figlab~\ref{#1}}
 \newcommand*\figs[1]{\figslab~\ref{#1}}
+\newcommand*\unit[1]{\textnormal{ #1}}
 
 % shortcuts
 
