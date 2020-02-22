@@ -411,6 +411,11 @@ Or, use $R_\textnormal{H} = 10973731.6$ m$^{-1}$:
 \frac{1}{\lambda} = Z^2R_\textnormal{H}\left(\frac{1}{n_\textnormal{f}^2}-\frac{1}{n_\textnormal{i}^2}\right)
 \end{equation*}
 
+Simplified Rydberg Equation, where $R_\infty = 10973731.6$ m$^{-1}$:
+\begin{equation*}
+\frac{1}{\lambda} = R_\infty\left(\frac{1}{n_\textnormal{lower}^2}-\frac{1}{n_\textnormal{upper}^2}\right)
+\end{equation*}
+
 de Broglie wavelength:
 \begin{equation*}
 \lambda=\frac{h}{mv}
@@ -577,8 +582,9 @@ Standard free energy of an electrochemical cell:
 
 First-order decay:
 \begin{equation*}
-\ln\frac{[\textnormal{A}]_t}{[\textnormal{A}]_0} = (-\ln 2)\left(\frac{t}{t_{\nicefrac{1}{2}}}\right) \textnormal{ or } 
 [\textnormal{A}]_t = [\textnormal{A}]_0 (1/2)^n \textnormal{ where } n = t/t_{\nicefrac{1}{2}}
+\textnormal{ or ln form: } 
+\ln\frac{[\textnormal{A}]_t}{[\textnormal{A}]_0} = (-\ln 2)\left(\frac{t}{t_{\nicefrac{1}{2}}}\right) 
 \end{equation*}
 
 Arrhenius equation:
@@ -811,6 +817,30 @@ Standard free energy of reaction, where $n$ and $m$ are coefficients in the bala
 % ==========================================================================================
 
 \section{Other}
+
+Mass defect:
+\begin{equation*}
+\Delta m = [Z(m_{\textnormal{p}}+m_\textnormal{e})+(A-Z)m_\textnormal{n}]-m_\textnormal{atom}
+\end{equation*}
+
+\begin{table}[H]
+    \centering
+    \caption{Values for mass defect equation.}
+        \begin{tabular}{ccc}
+            \toprule
+               Variable & Description & Value \\
+               \midrule
+               $\Delta m$ & mass defect & amu \\
+               $m_\textnormal{p}$ & mass of a proton & 1.007277 \\
+               $m_\textnormal{n}$ & mass of a neutron & 1.008665 \\
+               $m_\textnormal{e}$ & mass of an electron & 0.000548597 \\
+               $m_\textnormal{atom}$ & mass of nuclide & $^A_Z X$\\
+               $Z$ & atomic number & number of protons \\
+               $A$ & mass number & number of nucleons \\
+            \bottomrule
+        \end{tabular}
+    \label{tabgrav}
+\end{table}
 
 Relationship between mass defect and energy released: 
 \begin{equation*}
