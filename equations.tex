@@ -78,19 +78,22 @@ Freezing point depression:
 \end{equation*}
 
 \begin{table}[H]
-	\centering
-	\caption{Boiling point elevation and freezing point depression constants for different solvents.}
-		\begin{tabular}{cSSSS}
-			\toprule
-            Solvent & {Normal Boiling Point (\deg C)} & {$K_\textnormal{b}$ (\deg C/m)} & {Normal Freezing Point (\deg C)} & {$K_\textnormal{f}$ (\deg C/m)} \\ 
+    \centering
+    \caption{Boiling point elevation and freezing point depression constants for different solvents.}
+        \begin{tabular}{cSSSS}
+            \toprule
+            Solvent & {Normal Boiling (\deg C)} & {$K_\textnormal{b}$ (\deg C/m)} & {Normal Freezing (\deg C)} & {$K_\textnormal{f}$ (\deg C/m)} \\ 
             \midrule
             Water & 100.0 & 0.512 & 0.0 & 1.86\\
             Acetic acid & 118.1 & 3.04 & 16.6 & 3.90\\
             Benzene & 80.1 & 2.53 & 5.5 & 5.12  \\
             Chloroform & 61.3 & 3.63 & -63.5 & 4.86\\
-            Nitrobenzene & 210.9 & 5.24 & 5.67 & 8.1 \\
+            Carbon tetrachloride & 76.8 & 5.26 & -22.62 & 31.4 \\
+            Carbon disulfide & 46.2 & 2.42 & -112.1 & 3.74 \\
+            Nitrobenzene & 210.9 & 5.24 & 5.67 & 6.87 \\
+            \textsc{d}-Camphor & 207.4 & 4.91 & 178.8 & 37.8 \\
             \bottomrule
-		\end{tabular}
+        \end{tabular}
 \end{table}
 
 Osmotic pressure:
@@ -233,10 +236,10 @@ q= nC_P\Delta T
 \end{itemize}
 
 \bigskip\begin{table}[H]
-	\centering
-	\caption{Summary of thermodynamic quantities under different conditions.}
-		\begin{tabular}{lcccc}
-			\toprule
+    \centering
+    \caption{Summary of thermodynamic quantities under different conditions.}
+        \begin{tabular}{lcccc}
+            \toprule
             Quantity  & Constant $P$ & Constant $V$ & Adiabatic & Isothermal\\
             \midrule
             Heat, $q$    & $nC_\textnormal{P}\Delta T$ & $nC_\textnormal{V}\Delta T$ & 0 & $-w$ \\
@@ -244,9 +247,9 @@ q= nC_P\Delta T
             Energy, $\Delta E$ & $q+w$ & $q$ & $w$ & 0 \\
             Enthalpy, $\Delta H$ & $q$ & $\Delta E + V\Delta P$ & $V\Delta P$ & 0  \\
             Entropy, $\Delta S$ & $nC_\textnormal{P}\ln \left(\frac{T_\textnormal{f}}{T_\textnormal{i}}\right)$ &  $nC_\textnormal{V}\ln \left(\frac{T_\textnormal{f}}{T_\textnormal{i}}\right)$ & 0 & $nR\ln \left(\frac{V_\textnormal{f}}{V_\textnormal{i}}\right) = nR\ln \left(\frac{P_\textnormal{i}}{P_\textnormal{f}}\right)$ \\          
-			\bottomrule
-		\end{tabular}
-	\label{cond}
+            \bottomrule
+        \end{tabular}
+    \label{cond}
 \end{table}
 
 
@@ -848,11 +851,57 @@ Relationship between mass defect and energy released:
 \Delta E = (\Delta m)c^2
 \end{equation*}
 
+The Quadratic Formula: for a quadratic equation $ax^2+bx+c=0$, the solutions $x$ are:
 
+\begin{equation*}
+x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation*}
 
+\newpage\section{Acidities}
 
+\begin{center}
+          \begin{tabular}{ccSl}
+               \toprule
+               Acid           &   Conj.\ Base      &  {p$K_\textnormal{a}$}      &   Remarks        \\
+               \midrule
+               HI             &   I$^{-}$          &  -10                        &   hydroiodic acid \\
+               HBr            &   Br$^{-}$         &  -9                         &   hydrobromic acid \\
+               \ce{H2SO4}     &   \ce{HSO4}$^{-}$  &  -9                         &   sulfuric acid \\
+               HCl            &   Cl$^{-}$         &  -7                         &   hydrochloric acid \\
+               \ce{H3O}$^{+}$ &   \ce{H2O}         &  -2                         &   hydronium \\
+               \ce{HNO3}      &   \ce{NO3}$^{-}$   &  -1                         &   nitric acid \\
+               \midrule
+               \ce{HSO4}$^{-}$ & \ce{SO4}$^{2-}$   &   2                         &   2$^{\textnormal{nd}}$ H of sulfuric acid \\
+               HF             &   F$^{-}$          &   3                         &   hydrofluoric acid \\
+               RCOOH          &   RCOO$^{-}$       &   4                         &   carboxylic acids \\
+               \ce{H2S}       &   HS$^{-}$         &   7                         &   compare to H$_2$O\\
+               \ce{NH4}$^{+}$ &   \ce{NH3}         &   9                         &   ammonium \\
+               HCN            &   NC$^{-}$         &   9.2                       &   $sp$-hybridized carbanion \\
+               PhOH           &   PhO$^{-}$        &   10                        &   phenols$^{\textit{a}}$ \\
+               H$_2$O         &   HO$^{-}$         &   15.7                      &   water$^{\textit{b}}$ \\
+               ROH            &   RO$^{-}$         &   16                        &   aliphatic alcohols$^{\textit{c}}$ \\
+               \ce{RC(O)NH2}  &   \ce{RC(O)NH}$^{-}$ & 17                        &   amides \\
+               \ce{RC(O)CH3}  &   \ce{RC(O)CH2}$^{-}$ & 20                       &   \textalpha\ H of ketones\\
+               \ce{PhNH2}     &   PHNH$^{-}$       &   25                        &   aniline$^{\textit{d}}$ \\
+               \ce{RC#CH}     &   \ce{RC#C}$^{-}$  &   25                        &   terminal alkyne (\textit{sp} H) \\
+               H$_2$          &   H$^{-}$          &   36                        &   hydrogen gas \\
+               \ce{NH3}       &   \ce{NH2}$^{-}$   &   38                        &   ammonia \\
+               \ce{RNH2}      &   RNH$^{-}$        &   40                        &   aliphatic amines \\
+               \bottomrule
+          \end{tabular}
+\end{center}
 
+\bigskip Footnotes:
 
+$^{\textit{a}}$ depending on the substitution of Ph, p$K_\textnormal{a}$ can vary from 4--11
+
+$^{\textit{b}}$ water is amphoteric, so anything less acidic than water can act as a base \\ \hspace*{1.4mm} in aqueous solution
+
+$^{\textit{c}}$ depending on the substitution of R, p$K_\textnormal{a}$ can vary from 15--17
+
+$^{\textit{d}}$ depending on the substitution of Ph, p$K_\textnormal{a}$ can vary from 18--28
+
+\bigskip\fbox{\fbox{A conjugate base can deprotonate any acid higher than it on this table.}}
 
 
 
