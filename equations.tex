@@ -814,12 +814,70 @@ Standard free energy of reaction, where $n$ and $m$ are coefficients in the bala
 % ==========================================================================================
 % ==========================================================================================
 
-
-% ==========================================================================================
-% ==========================================================================================
-% ==========================================================================================
-
 \newpage
+\section{Statistics}
+
+Arithmetic mean (average):
+\begin{equation*}
+\overline x = \frac{\sum_i(x_i)}{n}
+\end{equation*}
+
+Standard deviation:
+\begin{equation*}
+\sigma = \sqrt{\frac{\sum_i(x_i-\overline x)^2}{n-1}}
+\end{equation*}
+
+\begin{center}
+          \begin{tabular}{cSccc}
+                  \toprule    
+                  $x_i$ & {$x_i-\overline x$} &  $(x_i-\overline x)^2$ & $\sum(x_i-\overline x)^2$ & $\sigma$ \\
+                  \midrule
+                  0.685 & 0.003 & 0.000009 & & \\
+                  0.676 & -0.006 & 0.000036 & & \\
+                  0.669 & -0.013 & 0.000169 & & \\
+                  0.688 & 0.006 & 0.000036 & & \\
+                  0.692 & 0.010 & 0.000100 & & \\
+                  \midrule
+                                        $n=5$ & & & 0.00035 & 0.0094\\
+                  \bottomrule
+          \end{tabular}
+\end{center}\bigskip
+
+Confidence interval (true mean), see end of document for $t$ values.
+\begin{equation*}
+\mu = \overline x \pm \frac{t\sigma}{\sqrt{n}}
+\end{equation*}
+
+\begin{comment}
+\begin{table}[htbp]
+    \centering
+        \begin{tabular}{cccc}
+            \toprule
+                \multicolumn{1}{c}{}             & \multicolumn{3}{c}{Confidence Level (\%)}\\
+                \cmidrule(l){2-4}
+                $(n-1), df$ & 90 & 95 & 99 \\
+                \midrule
+                3 & 2.353 & 3.182 & 5.841\\
+                4 & 2.132 & 2.776 & 4.604\\
+                5 & 2.015 & 2.571 & 4.032\\
+                10 & 1.812 & 2.228 & 3.169\\
+                20 & 1.725 & 2.086 & 2.845\\
+                $\infty$ & 1.645 & 1.960 & 2.576\\
+            \bottomrule
+        \end{tabular}
+    \label{tab:tval}
+\end{table}
+\end{comment}
+
+Outliers (Grubbs' Test): If $G > G_{\textnormal{ref}}$ then $x_i$ can be considered an outlier. See end of document for $G$ values.
+\begin{equation*}
+G = \frac{|x_i-\overline x|}{\sigma}
+\end{equation*}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
 \section{Other}
 
 Mass defect:
@@ -903,8 +961,15 @@ $^{\textit{d}}$ depending on the substitution of Ph, p$K_\textnormal{a}$ can var
 
 \bigskip\fbox{\fbox{A conjugate base can deprotonate any acid higher than it on this table.}}
 
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
 
-
+\newpage
+{
+%\setbeamercolor{background canvas}{bg=}
+\includepdf[pages=1-3]{stats.pdf}
+}
 
 
 
