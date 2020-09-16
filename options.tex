@@ -1,8 +1,11 @@
 % basic setup
 
-\usepackage{microtype,graphicx,booktabs,siunitx,titlesec,parskip,fullpage,nicefrac,float,textgreek}
-\usepackage[rsfs]{emf}  
+\usepackage{microtype,graphicx,booktabs,siunitx,titlesec,parskip,fullpage,nicefrac,float}
+%\usepackage[artemisia]{textgreek}
+\usepackage{textgreek}
+\usepackage[calligra]{emf} %rsfs  
 \usepackage[version=4]{mhchem} 
+%\usepackage{txfonts}
 \usepackage[bottom,hang]{footmisc}\setlength\footnotemargin{9pt}\interfootnotelinepenalty=10000\setlength{\skip\footins}{0.5cm}  
 \usepackage{pdfpages}
 \usepackage{verbatim}
@@ -33,9 +36,9 @@
 \def\tild{$\sim$}
 \def\dg{$\Delta G$}
 \def\electron{e$^-$}
-\def\Ecell{$\emf_{\textnormal{cell}}$}
-\def\Enotcell{$\emf^{\circ}_{\textnormal{cell}}$}
-\def\Enot{$\emf^{\circ}$}
+\def\Ecell{$\emf_{\hspace*{-.3mm}\textnormal{cell}}$} % needs \usepackage[calligra]{emf} or [rsfs]
+\def\Enotcell{$\emf^{\hspace*{.5mm}\circ}_{\hspace*{-.3mm}\textnormal{cell}}$}
+\def\Enot{$\emf^{\hspace*{.5mm}\circ}$}
 \def\not{^\circ}
 \def\Ka{$K_{\textnormal{a}}$}
 \def\Kb{$K_{\textnormal{b}}$}
