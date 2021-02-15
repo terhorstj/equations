@@ -1,9 +1,11 @@
+
 % ==========================================================================================
 % ==========================================================================================
 % ==========================================================================================
 
 \documentclass[10pt]{article}
 \input{options}
+\usepackage{mlmodern}
 
 % ==========================================================================================
 % ==========================================================================================
@@ -19,6 +21,14 @@
 
 \begin{document}
 
+\begin{comment}
+
+need to add:
+
+- coulomb's law for energy
+
+
+\end{comment}
 % ==========================================================================================
 % ==========================================================================================
 % ==========================================================================================
@@ -162,9 +172,9 @@ Raoult's Law, where $P_i^\star$ is the vapor pressure of pure substance $i$:
 P_\textnormal{Tot}=\chi_\textnormal{A}P_\textnormal{A}^\star + \chi_\textnormal{B}P_\textnormal{Bb}^\star + \dots
 \end{equation*}
 
-Alternately,
+For ionic solutes we include the van't Hoff factor $i$:
 \begin{equation*}
-P_i=\chi_iP_i^\star
+P_i=i\chi_iP_i^\star
 \end{equation*}
 
 Root-mean-square (RMS) speed of a gas particle:
@@ -579,26 +589,19 @@ Standard free energy of an electrochemical cell:
 \vspace*{-5pt}
 \begin{table}[H]
     \centering
-        \begin{tabular}{cl}
+        \begin{tabular}{cll}
             \toprule
-                Order & Half-life\\
+                Order & Half-life & Alternate Form\\
                 \midrule
-                0 & $t_{\nicefrac{1}{2}}=\frac{\textnormal{[A]}_0}{2k}$ \\[10pt]
-                1 & $t_{\nicefrac{1}{2}}=\frac{\ln 2}{k}$  \\[10pt]
-                2 & $t_{\nicefrac{1}{2}}=\frac{1}{k\textnormal{[A]}_0}$  \\
+                0 & $t_{\nicefrac{1}{2}}=\frac{\textnormal{[A]}_0}{2k}$ & \\[10pt]
+                1 & $t_{\nicefrac{1}{2}}=\frac{\ln 2}{k}$ & $\ln\frac{[\textnormal{A}]_t}{[\textnormal{A}]_0} = (-\ln 2)\left(\frac{t}{t_{\nicefrac{1}{2}}}\right)$  \\[10pt]
+                2 & $t_{\nicefrac{1}{2}}=\frac{1}{k\textnormal{[A]}_0}$ & \\
             \bottomrule
         \end{tabular}
     \label{tabhalf}
 \end{table}
 
 %The rate constant $k$ is a combination of many factors, mostly involving collision theory.\footnote{Collision theory is a theory that qualitatively explains how chemical reactions occur and why reaction rates differ for different reactions. Collision theory states that when suitable particles of the reactant collide with each other, only a certain percentage of the collisions cause any noticeable or significant chemical change; these successful changes are called ``successful collisions.'' A successful collision has enough energy, also known as activation energy ($E_\textnormal{a}$), at the moment of impact to break the preexisting bonds and form all new bonds. This results in the products of the reaction. Increasing the concentration of the reactant particles or raising the temperature, thus bringing about more collisions and therefore many more successful collisions, increases the rate of reaction.} It is defined by the 
-
-First-order decay:
-\begin{equation*}
-[\textnormal{A}]_t = [\textnormal{A}]_0 (1/2)^n \textnormal{ where } n = t/t_{\nicefrac{1}{2}}
-\textnormal{ or ln form: } 
-\ln\frac{[\textnormal{A}]_t}{[\textnormal{A}]_0} = (-\ln 2)\left(\frac{t}{t_{\nicefrac{1}{2}}}\right) 
-\end{equation*}
 
 Arrhenius equation:
 \begin{equation*}
@@ -610,9 +613,10 @@ Relationships of rate constants at two different temperatures:
 \ln \frac{k_1}{k_2} = \frac{E_\textnormal{a}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) = \frac{-E_\textnormal{a}}{R}\left(\frac{1}{T_1}-\frac{1}{T_2}\right)
 \end{equation*}
 
+\newpage
 \subsection{Kinetics Data}
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \caption{Kinetics Data --- 0th Order}
         \begin{tabular}{cccc}
@@ -630,9 +634,9 @@ Relationships of rate constants at two different temperatures:
             \bottomrule
         \end{tabular}
 \end{table}
-\vspace*{-.5cm}    
-{\centering\input{kinetics/0/0a/mygraph.tex}\\[-3.5ex]
-\input{kinetics/0/0b/mygraph.tex}\\[-3.5ex]
+\vspace*{-.7cm}    
+{\centering\input{kinetics/0/0a/mygraph.tex}\\[-3.7ex]
+\input{kinetics/0/0b/mygraph.tex}\\[-3.6ex]
 \input{kinetics/0/0c/mygraph.tex}\\}
 
 \newpage
@@ -949,7 +953,7 @@ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
                H$_2$O         &   HO$^{-}$         &   15.7                      &   water$^{\textit{b}}$ \\
                ROH            &   RO$^{-}$         &   16                        &   aliphatic alcohols$^{\textit{c}}$ \\
                \ce{RC(O)NH2}  &   \ce{RC(O)NH}$^{-}$ & 17                        &   amides \\
-               \ce{RC(O)CH3}  &   \ce{RC(O)CH2}$^{-}$ & 20                       &   \textalpha\ H of ketones\\
+               \ce{RC(O)CH3}  &   \ce{RC(O)CH2}$^{-}$ & 20                       &   $\alpha$-H of ketones\\
                \ce{PhNH2}     &   PHNH$^{-}$       &   25                        &   aniline$^{\textit{d}}$ \\
                \ce{RC#CH}     &   \ce{RC#C}$^{-}$  &   25                        &   terminal alkyne (\textit{sp} H) \\
                H$_2$          &   H$^{-}$          &   36                        &   hydrogen gas \\
