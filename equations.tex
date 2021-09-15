@@ -5,7 +5,6 @@
 
 \documentclass[10pt]{article}
 \input{options}
-\usepackage{mlmodern}
 
 % ==========================================================================================
 % ==========================================================================================
@@ -109,7 +108,7 @@ Freezing point depression:
 
 Osmotic pressure:
 \begin{equation*}
-\pi=i\textnormal{M}RT
+\pi=i\mathcal{M}RT
 \end{equation*}
 
 Dilution:
@@ -179,12 +178,12 @@ P_i=i\chi_iP_i^\star
 
 Root-mean-square (RMS) speed of a gas particle:
 \begin{equation*}
-\mu = \sqrt{\frac{3RT}{M}}
+\mu = \sqrt{\frac{3RT}{\mathcal{M}}}
 \end{equation*}
 
 Rates of Effusion by Molar Mass
 \begin{equation*}
-\frac{\textnormal{rate}_1}{\textnormal{rate}_2} = \sqrt{\frac{M_2}{M_1}}
+\frac{\textnormal{rate}_1}{\textnormal{rate}_2} = \sqrt{\frac{\mathcal{M}_2}{\mathcal{M}_1}}
 \end{equation*}
 
 van der Waals equation for pressure of a non-ideal gas, where $a$ corrects for the attractive forces between gas particles, and $b$ corrects for the volume occupied by gas particles:
@@ -404,17 +403,17 @@ Standard free energy of reaction, where $n$ and $m$ are coefficients in the bala
 % ==========================================================================================
 % ==========================================================================================
 
-Relationship of wavelength and frequency, where $c=\num{2.99e8}\unit{m/s}$:
+Relationship of wavelength and frequency, where $c=\num{2.99e8}\myu{m/s}$:
 \begin{equation*}
 c = \lambda\nu
 \end{equation*}
 
-Energy of a photon, where Planck's constant $h=\num{6.626e-34}\unit{J\cd s}$:
+Energy of a photon, where Planck's constant $h=\num{6.626e-34}\myu{J\cd s}$:
 \begin{equation*}
 E = h\nu = \frac{hc}{\lambda}
 \end{equation*}
 
-Energy of an electron in the $n^{\textnormal{th}}$ shell in a hydrogen atom, where $R_\infty=\num{2.18e-18}\unit{J}$:
+Energy of an electron in the $n^{\textnormal{th}}$ shell in a hydrogen atom, where $R_\infty=\num{2.18e-18}\myu{J}$:
 \begin{equation*}
 E_n=Z^2R_\infty\left(\frac{1}{n^2}\right)
 \end{equation*}
@@ -569,6 +568,7 @@ Standard free energy of an electrochemical cell:
 % ==========================================================================================
 % ==========================================================================================
 
+\newpage
 \section{Reaction Kinetics}
 
 \begin{table}[H]
@@ -606,6 +606,11 @@ Standard free energy of an electrochemical cell:
 Arrhenius equation:
 \begin{equation*}
 k = A \exp{\frac{-E_\textnormal{a}}{RT}} \textnormal{ and ln form: } \ln k = \left(\frac{-E_\textnormal{a}}{R}\right)\left(\frac{1}{T}\right) + \ln A
+\end{equation*}
+
+Arrhenius equation for different rate constants for different $E_{\textnormal{a}}$ at constant $T$:
+\begin{equation*}
+\ln{\left(\frac{k_2}{k_1}\right)} = \left(\frac{1}{RT}\right)(-E_{\textnormal{a}_2}+E_{\textnormal{a}_1})
 \end{equation*}
 
 Relationships of rate constants at two different temperatures:
@@ -717,6 +722,11 @@ K_\textnormal{p} = K_\textnormal{c}RT^{\Delta n}
 Ion product of water:
 \begin{equation*}
 K_\textnormal{w} = [\textnormal{H$_3$O$^{+}$}][\textnormal{$^{-}$OH}] = \num{1e-14}
+\end{equation*}
+
+The Quadratic Formula: for a quadratic equation $ax^2+bx+c=0$, the solutions $x$ are:
+\begin{equation*}
+x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \end{equation*}
 
 % ==========================================================================================
@@ -892,7 +902,7 @@ G = \frac{|x_i-\overline x|}{\sigma}
 % ==========================================================================================
 % ==========================================================================================
 
-\section{Other}
+\section{Nuclear Decay and Mass Defect}
 
 Mass defect:
 \begin{equation*}
@@ -923,47 +933,48 @@ Relationship between mass defect and energy released:
 \Delta E = (\Delta m)c^2
 \end{equation*}
 
-The Quadratic Formula: for a quadratic equation $ax^2+bx+c=0$, the solutions $x$ are:
-
-\begin{equation*}
-x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
-\end{equation*}
 
 \newpage\section{Acidities}
 
 \begin{center}
-          \begin{tabular}{ccSl}
+          \begin{tabular}{ccSll}
                \toprule
-               Acid           &   Conj.\ Base      &  {p$K_\textnormal{a}$}      &   Remarks        \\
+               Acid           &   Conj.\ Base      &  {\pKa}      &   Remarks        & \\
                \midrule
-               HI             &   I$^{-}$          &  -10                        &   hydroiodic acid \\
-               HBr            &   Br$^{-}$         &  -9                         &   hydrobromic acid \\
-               \ce{H2SO4}     &   \ce{HSO4}$^{-}$  &  -9                         &   sulfuric acid \\
-               HCl            &   Cl$^{-}$         &  -7                         &   hydrochloric acid \\
-               \ce{H3O}$^{+}$ &   \ce{H2O}         &  -2                         &   hydronium \\
-               \ce{HNO3}      &   \ce{NO3}$^{-}$   &  -1                         &   nitric acid \\
+               HI             &   I$^{-}$          &  -10                        &   hydroiodic acid & \rdelim\}{6}{1mm}[strong acids] \\
+               HBr            &   Br$^{-}$         &  -9                         &   hydrobromic acid & \\
+               \ce{H2SO4}     &   \ce{HSO4}$^{-}$  &  -9                         &   sulfuric acid & \\
+               HCl            &   Cl$^{-}$         &  -7                         &   hydrochloric acid & \\
+               \ce{H3O}$^{+}$ &   \ce{H2O}         &  -2                         &   hydronium & \\
+               \ce{HNO3}      &   \ce{NO3}$^{-}$   &  -1                         &   nitric acid & \\
                \midrule
-               \ce{HSO4}$^{-}$ & \ce{SO4}$^{2-}$   &   2                         &   2$^{\textnormal{nd}}$ H of sulfuric acid \\
-               HF             &   F$^{-}$          &   3                         &   hydrofluoric acid \\
-               RCOOH          &   RCOO$^{-}$       &   4                         &   carboxylic acids \\
-               \ce{H2S}       &   HS$^{-}$         &   7                         &   compare to H$_2$O\\
-               \ce{NH4}$^{+}$ &   \ce{NH3}         &   9                         &   ammonium \\
-               HCN            &   NC$^{-}$         &   9.2                       &   $sp$-hybridized carbanion \\
-               PhOH           &   PhO$^{-}$        &   10                        &   phenols$^{\textit{a}}$ \\
-               H$_2$O         &   HO$^{-}$         &   15.7                      &   water$^{\textit{b}}$ \\
-               ROH            &   RO$^{-}$         &   16                        &   aliphatic alcohols$^{\textit{c}}$ \\
-               \ce{RC(O)NH2}  &   \ce{RC(O)NH}$^{-}$ & 17                        &   amides \\
-               \ce{RC(O)CH3}  &   \ce{RC(O)CH2}$^{-}$ & 20                       &   $\alpha$-H of ketones\\
-               \ce{PhNH2}     &   PHNH$^{-}$       &   25                        &   aniline$^{\textit{d}}$ \\
-               \ce{RC#CH}     &   \ce{RC#C}$^{-}$  &   25                        &   terminal alkyne (\textit{sp} H) \\
-               H$_2$          &   H$^{-}$          &   36                        &   hydrogen gas \\
-               \ce{NH3}       &   \ce{NH2}$^{-}$   &   38                        &   ammonia \\
-               \ce{RNH2}      &   RNH$^{-}$        &   40                        &   aliphatic amines \\
+               \ce{HSO4}$^{-}$ & \ce{SO4}$^{2-}$   &   2                         &   2\textsuperscript{nd} H of sulfuric acid & \rdelim\}{21}{1mm}[weak acids] \\
+               HF             &   F$^{-}$          &   3                         &   hydrofluoric acid & \\
+               RCOOH          &   RCOO$^{-}$       &   4                         &   carboxylic acids & \\
+               \ce{H2S}       &   HS$^{-}$         &   7                         &   compare to H$_2$O& \\
+               \ce{NH4}$^{+}$ &   \ce{NH3}         &   9                         &   ammonium & \\
+               HCN            &   NC$^{-}$         &   9.2                       &   nitriles & \\
+               PhOH           &   PhO$^{-}$        &   10                        &   phenols$^{\textit{a}}$ & \\
+               \ce{H2O}       &   HO$^{-}$         &   15.7                      &   water$^{\textit{b}}$ & \\
+               ROH            &   RO$^{-}$         &   16                        &   aliphatic alcohols$^{\textit{c}}$ & \\
+               \ce{RC(O)NH2}  &   \ce{RC(O)NH}$^{-}$ & 17                        &   amides & \\
+               \ce{RC(O)CH3}  &   \ce{RC(O)CH2}$^{-}$ & 20                       &   $\alpha$ H of ketones& \\
+               \ce{PhNH2}     &   PHNH$^{-}$       &   25                        &   aniline$^{\textit{d}}$ & \\
+               \ce{RC#CH}     &   \ce{RC#C}$^{-}$  &   25                        &   terminal alkyne (\textit{sp} C---H) & \\
+               \ce{H2}        &   H$^{-}$          &   36                        &   hydrogen gas & \\
+               \ce{NH3}       &   \ce{NH2}$^{-}$   &   38                        &   ammonia & \\
+               \ce{RNH2}      &   RNH$^{-}$        &   40                        &   aliphatic amines & \\ 
+               \ce{PhCH3}     &   \ce{PhCH2}$^{-}$ &   41                        &   benzylic ($sp^3$ C---H) & \\
+               \ce{C6H6}      &    \ce{C6H5}$^{-}$ &   42                        &   aryl ($sp^2$ C---H) & \\
+               \ce{H2C=CHCH3} &   \ce{H2C=CHCH2}$^{-}$ &  43                     &   allylic ($sp^3$ C---H) & \\
+               \ce{RCH=CH2}   &   \ce{RCH=CH}$^{-}$ &  47                        &   vinylic ($sp^2$ C---H) & \\
+               \ce{RCH3}       &   \ce{RCH2}$^{-}$   &   50                     &   alkanes ($sp^3$ C---H) & \\ 
                \bottomrule
           \end{tabular}
 \end{center}
 
-\bigskip Footnotes:
+
+\subsection*{Footnotes:}
 
 $^{\textit{a}}$ depending on the substitution of Ph, p$K_\textnormal{a}$ can vary from 4--11
 
@@ -979,6 +990,7 @@ $^{\textit{d}}$ depending on the substitution of Ph, p$K_\textnormal{a}$ can var
 % ==========================================================================================
 % ==========================================================================================
 
+\newpage
 \section{Compound Units}
 
 \begin{itemize}
@@ -1002,7 +1014,6 @@ $^{\textit{d}}$ depending on the substitution of Ph, p$K_\textnormal{a}$ can var
 % ==========================================================================================
 % ==========================================================================================
 
-\newpage
 {
 %\setbeamercolor{background canvas}{bg=}
 \includepdf[pages=-]{datasheet.pdf}

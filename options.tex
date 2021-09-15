@@ -1,11 +1,10 @@
 % basic setup
 
-\usepackage{microtype,graphicx,booktabs,siunitx,titlesec,parskip,fullpage,nicefrac,float}
+\usepackage{microtype,graphicx,booktabs,siunitx,titlesec,parskip,fullpage,nicefrac,float,mlmodern,multirow,bigdelim}
 %\usepackage[artemisia]{textgreek}
 \usepackage{textgreek}
-\usepackage[calligra]{emf} %rsfs  
+\usepackage[boondox]{emf} %rsfs  
 \usepackage[version=4]{mhchem} 
-%\usepackage{txfonts}
 \usepackage[bottom,hang]{footmisc}\setlength\footnotemargin{9pt}\interfootnotelinepenalty=10000\setlength{\skip\footins}{0.5cm}  
 \usepackage{pdfpages}
 \usepackage{verbatim}
@@ -20,15 +19,6 @@
 \titleformat{\section}{\large\bfseries}{\thetitle.}{.5em}{}
 \titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{}
 \titleformat{\subsubsection}{\itshape}{\thesubsubsection.}{.5em}{}
-
-% labels
-
-\def\tablab{Table}\def\tabslab{\tablab s}
-\def\figlab{Figure}\def\figslab{\figlab s}
-\newcommand*\tbl[1]{\tablab~\ref{#1}}
-\newcommand*\fig[1]{\figlab~\ref{#1}}
-\newcommand*\figs[1]{\figslab~\ref{#1}}
-\newcommand*\unit[1]{\textnormal{ #1}}
 
 % shortcuts
 
@@ -48,7 +38,14 @@
 \def\pKa{p$K_{\textnormal{a}}$}
 \def\cmi{cm$^{-1}$}
 \def\cd{$\cdot$}
+\newcommand{\myu}[1]{\textnormal{ #1}}
 
 % hyperref, load last
 
 \usepackage{hyperref}\hypersetup{colorlinks = true}
+
+\usepackage[capitalize,noabbrev,nameinlink]{cleveref}
+\crefname{equation}{Eq.}{Eqs.}
+\crefname{page}{page}{pages}
+\creflabelformat{equation}{#2#1#3}
+\newcommand{\crefrangeconjunction}{--}
