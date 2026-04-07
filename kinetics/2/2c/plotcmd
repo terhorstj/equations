@@ -1,0 +1,105 @@
+#!/bin/bash
+
+gnuplot << TOEND
+
+# 
+# choose terminal type. postscript and latex are best for publshing
+# 
+
+   # set terminal x11 enhanced persist
+   # set termimal aqua font "Times-New-Roman,13"
+   # set terminal aqua font "Times,13"
+   # set terminal png nocrop
+   # set terminal postscript eps color enhanced "Times" 20
+   # set terminal postscript eps color enhanced
+    set terminal epslatex color colortext
+
+# 
+# set output file
+# 
+  
+   # set output 'mygraph.png'
+   # set output 'mygraph.eps'
+    set output 'mygraph.tex'
+
+# 
+# set size. no size will produce approximately textwidth
+# 
+
+   # set size 3.5,2.62
+   # set size square
+   set size square 0.65,0.65
+
+# 
+# set key options
+# 
+
+   # set nokey 
+    set key top right
+
+# 
+# set title of plot
+# 
+
+   set title '2nd Order Plot, r = 1'
+
+# 
+# configure axes tics. y2 axis is on the right side
+# 
+
+   # set log x
+   # set xtics 1
+   # set xtic auto
+   # set ytics 1
+   # set ytic auto
+   # set y2tics 1
+   # set y2tic auto
+   # unset ytic
+    set grid xtics ytics
+    set mxtics
+    set mytics
+   # set xzeroaxis linetype 1 lc 0 linewidth 2.5
+   # set yzeroaxis linetype 1 lc 0 linewidth 2.5
+   # set xrange [150:0] 
+    set xrange [0:7]
+   # set yrange [0:10]
+   # set y2range [0:5]
+
+# 
+# set axes labels. eps postscript term required for {/Symbols}. use latex macros if epslatex term
+# 
+
+   # set xlabel "{/Symbol d} (ppm)" 
+    set xlabel 'Time (s)'
+    set ylabel '1/(Concentration)'
+   # set y2label "Relative energy (kcal/mol)"
+    set bmargin 4
+
+# 
+# set regression
+# 
+
+    f(x) = m*x + b
+    fit f(x) '2order.txt' using 1:4 via m, b
+
+# 
+# plot data. linetype 0 for dotted, impulses for bars, nothing for just points, filledcurve x1 to fill under. use ($) to do math.
+# 
+
+plot "2order.txt" using 1:4 notitle w linespoints lc 8 pt 4 lw 2 linetype 1, \
+      f(x) title 'fit' lc 7 lw 2 linetype 1
+#     "sphi.dat" using 1:((\$2)*100) title 'TIP4P Water' w filledcurve x1 fs pattern 7 lc 9 linetype 1, \
+#     "sphi.dat" using 1:((\$3)*100) notitle             w lines       lw 4            lc 7 linetype 2, \
+#     "energy.dat" using 1:4 title 'OPLS/CM1A'     w linespoints pointtype 4 linetype 1 lc 7 lw 3 axes x1y2, \
+#     "energy.dat" using 1:5 title 'MP2/6-311G(d)' w linespoints pointtype 3 linetype 1 lc 7 lw 3 axes x1y2
+
+TOEND
+
+# this stuff is to streamline eps postscript output
+perl -pi -e 's/put\(176/put\(250/g' *tex
+perl -pi -e 's/mygraph/kinetics\/2\/2c\/mygraph/g' *tex
+ rm fit.log
+epstopdf *.eps 
+rm *.eps
+# open mygraph.pdf
+
